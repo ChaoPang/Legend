@@ -25,12 +25,14 @@ SELECT ROW_NUMBER() OVER (
 		) AS row_id,
 	subject_id,
 	cohort_start_date,
-	cohort_end_date
+	cohort_end_date,
+	cohort_definition_id
 INTO #exposure_cohorts
 FROM (
 	SELECT DISTINCT subject_id,
 		cohort_start_date,
-		cohort_end_date
+		cohort_end_date,
+		cohort_definition_id
 	FROM @cohort_database_schema.@paired_cohort_table paired_cohort
 	INNER JOIN #comparisons comparisons
 		ON paired_cohort.target_id = comparisons.target_id
