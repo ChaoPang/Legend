@@ -98,7 +98,7 @@ getDbSubgroupCovariateData <- function(connection,
                                              packageName = "Legend",
                                              dbms = connection@dbms,
                                              oracleTempSchema = oracleTempSchema)
-    covariates <- DatabaseConnector::querySql.ffdf(connection, sql)
+    covariates <- DatabaseConnector::querySql(connection, sql)
     colnames(covariates) <- SqlRender::snakeCaseToCamelCase(colnames(covariates))
 
 

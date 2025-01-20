@@ -102,7 +102,7 @@ getDbPriorExposuresCovariateData <- function(connection,
                                              cohort_id = cohortId,
                                              cohort_database_schema = covariateSettings$cohortDatabaseSchema,
                                              exposure_era_table = covariateSettings$exposureEraTable)
-    covariates <- DatabaseConnector::querySql.ffdf(connection, sql)
+    covariates <- DatabaseConnector::querySql(connection, sql)
     colnames(covariates) <- SqlRender::snakeCaseToCamelCase(colnames(covariates))
     covariateRef <- data.frame(covariateId = c(1000,
                                                2000,
