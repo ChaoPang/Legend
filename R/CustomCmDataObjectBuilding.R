@@ -202,7 +202,7 @@ fetchAllDataFromServer <- function(connectionDetails,
                                              outcome_database_schema = cohortDatabaseSchema,
                                              outcome_table = outcomeCohortTable,
                                              outcome_ids = outcomeIds)
-    outcomes <- DatabaseConnector::querySql.ffdf(conn, sql)
+    outcomes <- DatabaseConnector::querySql(conn, sql)
     colnames(outcomes) <- SqlRender::snakeCaseToCamelCase(colnames(outcomes))
     ffbase::save.ffdf(outcomes, dir = outcomesFolder)
     ff::close.ffdf(outcomes)
