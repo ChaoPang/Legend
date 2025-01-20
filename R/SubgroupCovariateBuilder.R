@@ -73,7 +73,11 @@ getDbSubgroupCovariateData <- function(connection,
                                        cdmVersion = "5",
                                        rowIdField = "subject_id",
                                        covariateSettings,
-                                       aggregated = FALSE) {
+                                       aggregated = FALSE,
+                                       tempEmulationSchema=NULL,
+                                       cohortIds = c(-1), 
+                                       minCharacterizationMean=0
+                                       ) {
     if (aggregated)
         stop("Aggregation not supported")
     writeLines("Creating covariates indicating subgroups of interest")
